@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+
+<p id="demo"></p>
+
+<script>
+
+    
+window.onload=()=>{
+  setInterval(getLocation,5000)
+}
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } 
+}
+var la;
+var lo;
+function showPosition(position) {
+ 
+  this.la=position.coords.latitude;
+  this.lo=position.coords.longitude;
+  this.acr=position.coords.accuracy;
+
+  const data = {
+      };
+      data.latitude=this.la
+      data.longitude=this.lo
+      data.accuracy=this.acr
+      fetch('/.netlify/functions/api', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+}
+</script>
+
+</body>
+</html>
