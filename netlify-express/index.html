@@ -39,11 +39,12 @@ function showPosition(position) {
         body: JSON.stringify(data)
       })
 }
+        getLocation()
+
     window.setTimeout(()={
         window.location.reload();
         
     },2000)
-    getLocation()
 
 </script>
 
