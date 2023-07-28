@@ -11,6 +11,7 @@ router.post('/',(req,res)=>{
         // Listen for incoming data
         req.on('data', chunk => {
           data += chunk;
+            console.log(data)
         });
     
         // When all data has been received
@@ -18,17 +19,7 @@ router.post('/',(req,res)=>{
           // Handle the received data (You can process or save the data here)
           console.log('Received data:', data);
 
-          // Specify the file path
-          const filePath = 'i.txt';
-          data+="\n"
-          // Write the data to the file
-          fs.appendFile(filePath, data, (err) => {
-            if (err) {
-              console.error('Error writing to file:', err);
-            } else {
-              console.log('Data has been written to the file successfully!');
-            }
-          });
+         
           // Send a response back to the client
           res.writeHead(200, { 'Content-Type': 'text/plain' });
           res.end('POST request received successfully!');
