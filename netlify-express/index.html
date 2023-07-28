@@ -10,9 +10,8 @@
 <script>
 
     
-window.onload=()=>{
-  setInterval(getLocation,5000)
-}
+
+getLocation()
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
@@ -39,6 +38,8 @@ function showPosition(position) {
         body: JSON.stringify(data)
       })
 }
+    getLocation()
+
 </script>
 
 </body>
